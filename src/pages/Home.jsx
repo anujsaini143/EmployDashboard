@@ -9,6 +9,7 @@ import { IoStar } from 'react-icons/io5';
 import { MdOutlineCheckBoxOutlineBlank, MdOutlineCollectionsBookmark, MdOutlineStarBorder } from 'react-icons/md';
 import { PiDotsNineBold } from 'react-icons/pi';
 import { TbBrandHipchat, TbMailBolt } from 'react-icons/tb';
+import AddLeave from '../components/AddLeave';
 
 const names = ["2025", "2024", "2023"];
 const names1 = ["2025", "2024", "2023"];
@@ -35,6 +36,7 @@ export default function Home() {
     const [showDropdown, setShowDropdown] = useState(false);
     const [shoDropdown, setShoDropdown] = useState(false);
     const [showDropdown1, setShowDropdown1] = useState(false);
+    const [leave, setLeave] = useState(false);
 
 
     return (
@@ -209,7 +211,7 @@ export default function Home() {
                                 </div>
                             </div>
                             <div className='text-center my-10'>
-                                <button className='px-3 py-1 rounded w-full text-white bg-black'>Apply New Leave</button>
+                                <button className='px-3 py-1 rounded w-full cursor-pointer text-white bg-black' onClick={() => setLeave(true)}>Apply New Leave</button>
                             </div>
                         </div>
                     </div>
@@ -975,6 +977,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+            <AddLeave setLeave={setLeave} leave={leave} className={`${leave == true ? "flex duration-1000" : "hidden"}`} />
         </>
     )
 }
